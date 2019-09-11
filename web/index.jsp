@@ -20,7 +20,7 @@
             <div class="navbar-header">
               <a class="navbar-brand" href="#">Minha Loja</a>
               <a class="navbar-brand" href="#">
-               <img alt="Minha Loja" src="...">
+
              </a>
             </div>
             <ul class="nav navbar-nav">
@@ -39,27 +39,29 @@
 
         </nav>
 
-        <h1>Hello World!</h1>
+       <div class="container">
 
-        <form action="AddProduto" method="post">
-            Descrição: <input name="descricao">
-            Preço: <input name="preco">
-
-            <button type="submit">OK</button>
-        </form>
-
-        <%
+        <h1>Ofertas da Loja!</h1>
+            <%
             for(int i=0; i<Produto.getLista().size(); i++){
 
-                Produto p = Produto.getLista().get(i);
+               Produto p = Produto.getLista().get(i);
+
+               if(i%4 == 0) { %>
+                  <div class="row">
+               <%}
 
                 out.println("<pre> "+ p.getDescricao() +" </pre>");
+
+               if(i%4==0){ %>
+                  </div>
+            <%}
 
             }
 
         %>
 
-
+         </div>
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

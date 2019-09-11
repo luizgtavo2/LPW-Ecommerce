@@ -20,7 +20,7 @@
             <div class="navbar-header">
               <a class="navbar-brand" href="#">Minha Loja</a>
               <a class="navbar-brand" href="#">
-               <img alt="Minha Loja" src="...">
+
              </a>
             </div>
             <ul class="nav navbar-nav">
@@ -38,9 +38,18 @@
           </div>
 
         </nav>
+         <div class="container">
+        <h1>Produtos da Loja!</h1>
+        <%
+           boolean logado = false;
 
-        <h1>Hello World!</h1>
+           if(session != null && session.getAttribute("logado") != null){
+            logado = (boolean)session.getAttribute("logado");
+           }
 
+           if(logado){
+
+        %>
         <form action="AddProduto" method="post">
             Descrição: <input name="descricao">
             Preço: <input name="preco">
@@ -49,17 +58,35 @@
         </form>
 
         <%
+         }
+        %>
+
+        <table class="table table-striped">
+           <thead>
+              <tr>
+                 <th>#</th>
+                 <th>Descrição </th>
+                 <th>Preço</th>
+              </tr>
+           </thead>
+           <tbody>
+        <%
             for(int i=0; i<Produto.getLista().size(); i++){
 
                 Produto p = Produto.getLista().get(i);
-
-                out.println("<pre> "+ p.getDescricao() +" </pre>");
+                out.println("<tr>");
+                out.println("<td>"+ (i+1) +" </td>");
+                out.println("<td> "+ p.getDescricao() +" </td>");
+                out.println("<td> "+ p.getPreco() +" </td>");
+                out.println("</tr>");
 
             }
 
         %>
-
+           </tbody>
+        </table>
 
         <script src="js/bootstrap.min.js"></script>
+        </div>
     </body>
 </html>

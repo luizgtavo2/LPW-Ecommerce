@@ -13,6 +13,7 @@
       <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
    </head>
    <body>
+      <div class="container">
       <h1>Entrar no sistema</h1>
 
       <form action="Login" method="post">
@@ -27,6 +28,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
+      </div>
       <script src="js/bootstrap.min.js" type="text/javascript"></script>
    </body>
 </html>
